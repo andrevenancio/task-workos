@@ -53,11 +53,13 @@ export const GroupsContainer = () => {
         </Group>
       )}
 
-      <Group label="Standard">
-        {standard.map((member: Member) => (
-          <Avatar key={member.id} {...member} />
-        ))}
-      </Group>
+      {standard.length > 0 && (
+        <Group label="Standard">
+          {standard.map((member: Member) => (
+            <Avatar key={member.id} {...member} />
+          ))}
+        </Group>
+      )}
     </Box>
   )
 }
