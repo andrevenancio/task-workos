@@ -45,72 +45,74 @@ const MembersContainer = () => {
   const fake = Array.from({ length: 4 }, (_, i) => i)
 
   return (
-    <table className={styles.table}>
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Role</th>
-          <th style={{ width: 100 }}>Admin</th>
-        </tr>
-      </thead>
-      <tbody>
-        {members.length === 0 &&
-          fake.map((key) => (
-            <tr key={key}>
-              <td>
-                <Box
-                  css={{
-                    gap: 10,
-                    alignItems: "center",
-                  }}
-                >
-                  <Skeleton type="circle" size={32} />
-                  <Skeleton type="rectangle" size={100} />
-                </Box>
-              </td>
-              <td>
-                <Skeleton type="rectangle" size={70} />
-              </td>
-              <td>
-                <Skeleton type="rectangle" size={30} />
-              </td>
-            </tr>
-          ))}
-        {members.length > 0 &&
-          members.map((member: Member) => (
-            <tr key={member.id}>
-              <td>
-                <Box
-                  css={{
-                    gap: 10,
-                    alignItems: "center",
-                    paddingLeft: member.admin ? 50 : 0,
-                    transition: "padding-left 0.2s ease-out",
-                  }}
-                >
-                  <Avatar {...member} />
-                  <Text>
-                    {member.firstName} {member.lastName}
-                  </Text>
-                </Box>
-              </td>
-              <td>
-                <Box css={{ gap: 4 }}>
-                  {member.admin && <Tag label="Admin" />}
-                  <Tag label={member.role} />
-                </Box>
-              </td>
-              <td>
-                <Checkbox
-                  id={member.id}
-                  value={member.admin}
-                  onChange={() => toggleAdmin(member.id)}
-                />
-              </td>
-            </tr>
-          ))}
-      </tbody>
-    </table>
+    <div className={styles.container}>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Role</th>
+            <th style={{ width: 100 }}>Admin</th>
+          </tr>
+        </thead>
+        <tbody>
+          {members.length === 0 &&
+            fake.map((key) => (
+              <tr key={key}>
+                <td>
+                  <Box
+                    css={{
+                      gap: 10,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Skeleton type="circle" size={32} />
+                    <Skeleton type="rectangle" size={100} />
+                  </Box>
+                </td>
+                <td>
+                  <Skeleton type="rectangle" size={70} />
+                </td>
+                <td>
+                  <Skeleton type="rectangle" size={30} />
+                </td>
+              </tr>
+            ))}
+          {members.length > 0 &&
+            members.map((member: Member) => (
+              <tr key={member.id}>
+                <td>
+                  <Box
+                    css={{
+                      gap: 10,
+                      alignItems: "center",
+                      paddingLeft: member.admin ? 50 : 0,
+                      transition: "padding-left 0.2s ease-out",
+                    }}
+                  >
+                    <Avatar {...member} />
+                    <Text>
+                      {member.firstName} {member.lastName}
+                    </Text>
+                  </Box>
+                </td>
+                <td>
+                  <Box css={{ gap: 4 }}>
+                    {member.admin && <Tag label="Admin" />}
+                    <Tag label={member.role} />
+                  </Box>
+                </td>
+                <td>
+                  <Checkbox
+                    id={member.id}
+                    value={member.admin}
+                    onChange={() => toggleAdmin(member.id)}
+                  />
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
 

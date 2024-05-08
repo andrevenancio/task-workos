@@ -1,0 +1,21 @@
+.container {
+  flex-direction: column;
+  gap: 4;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--space-m);
+  overflow: hidden;
+}
+
+.groupItems {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  row-gap: 20px;
+  padding: var(--space-l);
+}
+
+@media (min-width: 600px) {
+  .groupItems {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

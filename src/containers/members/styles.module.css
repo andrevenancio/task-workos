@@ -1,11 +1,17 @@
+.container {
+  overflow: auto;
+}
+
 .table {
   width: 100%;
+  min-width: 600px;
   background-color: var(--background-primary);
   color: var(--foreground-secondary);
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 14px;
   font-weight: 400;
   table-layout: fixed;
+  border-collapse: collapse;
 }
 
 .image {
@@ -25,12 +31,14 @@
   font-weight: 400;
   padding: var(--space-l);
   border-bottom: 1px solid var(--border-primary);
+  white-space: nowrap;
 }
 
 .table td {
   /* display: flex; */
   /* flex-direction: column; */
   /* align-items: center; */
+  white-space: nowrap;
   padding: var(--space-l);
 }
 
