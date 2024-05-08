@@ -1,0 +1,4 @@
+.container {
+  color: var(--foreground-secondary);
+  font-size: 14px;
+}

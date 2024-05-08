@@ -1,0 +1,39 @@
+.table {
+  width: 100%;
+  background-color: var(--background-primary);
+  color: var(--foreground-secondary);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  table-layout: fixed;
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background-color: var(--background-secondary);
+  text-align: left;
+  font-weight: 400;
+  padding: var(--space-l);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.table td {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  padding: var(--space-l);
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--border-primary);
+}

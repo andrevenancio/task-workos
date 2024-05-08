@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Task WorkOS
 
-## Getting Started
+This repository is a take-home exercise for WorkOS build with nextjs and css modules.
 
-First, run the development server:
+## Components
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+In production I would normally use components from a design system. Either from `npm` or internally from a monorepo (I like to use turborepo). When I am building a design system I normally use atomic design. However, because this is a simple take-home exercise I decided to put all components flat instead of organised in atoms, molecules, organisms, etc. Components should not have application specific logic so we can re-use them as much as possible.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+In this repository, I've created a couple of components, A particularly interesting component is the Tabs `src/components/tabs` where you can see how we can easily expand to new tabs by simply passing in more data.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Containers
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Containers are also components, however when there is application specific logic I've decided to separate some components into the containers folder.
 
-## Learn More
+## Caveats
 
-To learn more about Next.js, take a look at the following resources:
+In this example, I make use of a `Box` component to compose layouts quickly. This helps me develop faster, but also keeping this repository simple without too many components. In production I would try to avoid it.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Accessibility
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+In this exercise I use radix-ui as much as possible so I can inherit some accessibility best practices for free.
 
-## Deploy on Vercel
+## State Management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I could use React Context for this example, which would be enough, but I like using Redux, so I've added redux toolkit to the repository.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+At the moment the user needs to open the `Members` tab in order to load the list of members which is necessary for the second tab `Groups`. if we were to link the members/groups to the URL and the user were to access the groups first, this flow would not work. In that case, I would probably add redux-saga and load the members api endpoint as part of my initial data. This way regardless of which page loads first, my `members` array would already be populated.

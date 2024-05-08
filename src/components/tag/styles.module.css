@@ -1,0 +1,7 @@
+.container {
+  background-color: var(--background-secondary);
+  padding: var(--space-s);
+  border-radius: var(--space-s);
+  border: 1px solid var(--border-primary);
+  font-size: 10px;
+}
